@@ -1,0 +1,100 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+.main{
+	display:flex;
+	flex-direction:column;
+	border-bottom:1px solid black;
+	align-items:center;
+	justify-content:center;
+}
+
+#first{
+	display:flex;
+	justify-content:space-around;
+}
+
+#head{
+	width:60%;
+}
+
+#heading{
+	font-size:62px;
+	font-weight:900;
+	letter-spacing:2px;
+	word-spacing:5px;
+}
+
+.second{
+	display:flex;
+	align-items:center;
+	column-gap:30px;
+	justify-content:center;
+}
+
+.result-checking{
+	border:1px solid black;
+	padding:20px;
+	border-radius:10px;
+	display:flex;
+	justify-content:center;
+	flex-direction:column;
+	row-gap:10px;
+	align-items:center;
+	
+}
+
+marquee{
+	font-size:22px;
+	font-weight:500;
+}
+
+#result-btn, #admin-btn, #teacher-btn{
+	height:45px;
+	width:fit-content;
+	padding:12px;
+	background-color:blue;
+	color:white;
+	font-size:20px;
+	font-weight:700;
+	letter-spacing:2px;
+	border-radius:10px;
+	cursor:pointer;
+	border:none;
+}
+
+.authority-login{
+	border:1px solid black;
+	padding:32px;
+	border-radius:10px;
+	display:flex;
+	justify-content:center;
+	flex-direction:column;
+	row-gap:10px;
+	align-items:center;
+}
+
+a{
+	text-decoration:none;
+	color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

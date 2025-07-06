@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Student's Result</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f4f7fa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        #main {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+
+        #main h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        #main > div h1 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th {
+            font-size: 20px;
+            font-weight: 700;
+            padding: 12px;
+            background: #4A90E2;
+            color: white;
+            text-align: left;
+        }
+
+        td {
+            font-size: 18px;
+            padding: 12px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        td[colspan="2"] {
+            background: #f0f4f8;
+        }
+
+        a {
+            margin-top: 20px;
+            text-decoration: none;
+            background: #4A90E2;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        a:hover {
+            background: #357ABD;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="main">
+    <h1>Student's Result</h1>
+    <div>
+        <h1 th:text="${ 'Name: ' + student.name}"></h1>
+        <h1 th:text="${ 'Roll No: ' + student.rollno}"></h1>
+        <h1 th:text="${'Date of Birth: ' + student.dob}"></h1>
+        <h1 th:text="|Mother's Name: ${student.mname}|"></h1>
+    </div>
+
+    <table>
+        <tr>
+            <th>Subject Name</th>
+            <th>Total Marks</th>
+            <th>Obtained Marks</th>
+        </tr>
+        <tr>
+            <td>Aptitude & Reasoning</td>
+            <td>100</td>
+            <td th:text="${student.java_marks}"></td>
+        </tr>
+        <tr>
+            <td>English-Verbal</td>
+            <td>100</td>
+            <td th:text="${student.react_marks}"></td>
+        </tr>
+        <tr>
+            <td>Technical-Coding</td>
+            <td>100</td>
+            <td th:text="${student.oracle_marks}"></td>
+        </tr>
+        <tr>
+            <td colspan="2">Result Status</td>
+            <td style="color:green" th:if="${status=='Passed'}" th:text="${status}"></td>
+            <td style="color:red" th:if="${status=='Failed'}" th:text="${status}"></td>
+        </tr>
+    </table>
+
+    <a href="/">Go to Home</a>
+</div>
+
+</body>
+</html>

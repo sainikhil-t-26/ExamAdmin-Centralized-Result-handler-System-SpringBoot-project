@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MLRIT Result Portal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url("images/college_bg.png") no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Header Styling */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 30px;
+    }
+
+    .logo {
+      width: 280px;
+      height: auto;
+    }
+
+    .header-text {
+      flex: 1;
+      text-align: center;
+      margin-right: 120px;
+    }
+
+    .college-title {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ccc;
+    }
+
+    .desc {
+      font-size: 20px;
+      font-weight: 500;
+      color: #ccc;
+      margin-top: 8px;
+    }
+
+    /* Check Result marquee card */
+    .marquee-card {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 600px;
+      margin: 40px auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .marquee-card marquee {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffcccb;
+      margin-bottom: 20px;
+      scrollamount: 4;
+    }
+
+    /* Admin & Teacher login box */
+    .login-card {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 400px;
+      margin: 20px auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn {
+      background-color: #1976d2;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0d47a1;
+    }
+
+    /* Upcoming Events Boxes Moving */
+    .events-container {
+      overflow: hidden;
+      white-space: nowrap;
+      margin-top: 30px;
+      position: relative;
+    }
+
+    .event-box {
+      display: inline-block;
+      width: 300px; /* fixed width for uniformity */
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px 20px;
+      margin-right: 40px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #1976d2;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      text-align: center;
+      animation: moveLeft 25s linear infinite;
+    }
+
+    @keyframes moveLeft {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-120%); }
+    }
+
+    @media screen and (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .header-text {
+        margin-right: 0;
+        margin-top: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="overlay">
+
+    <!-- Header with logo and title -->
+    <div class="header">
+      <img src="images/mlrit_logo1.png" alt="MLRIT Logo" class="logo" />
+      <div class="header-text">
+        <div class="college-title">MLR INSTITUTE OF TECHNOLOGY - Affiliated with JNTUH</div>
+        <div class="desc">This is an Exams Handler website specific to Data-Science branch</div>
+      </div>
+    </div>
+
+    <!-- Check Result moving marquee -->
+    <div class="marquee-card">
+      <marquee scrollamount="4">Notice: Result of screening test has been declared</marquee>
+      <a href="checkResult"><button class="btn">Check Result</button></a>
+    </div>
+
+    <!-- Admin & Teacher login box -->
+    <div class="login-card">
+      <a href="adminLogin"><button class="btn">Login as Admin</button></a>
+      <a href="teacherLogin"><button class="btn">Login as Teacher</button></a>
+    </div>
+
+    <!-- Upcoming events/exams boxes scrolling -->
+    <div class="events-container">
+      <div class="event-box">Data Science Mid-Term - Aug 15</div>
+      <div class="event-box">Recruitment Drive (TCS) - Aug 20</div>
+      <div class="event-box">Hackathon - Sept 1</div>
+      <div class="event-box">Final Exams - Oct 5</div>
+      <div class="event-box">Guest Lecture on AI - Oct 15</div>
+    </div>
+
+  </div>
+</body>
+</html>

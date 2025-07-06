@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Welcome Shivam</title>
+<style>
+    body {
+        background: url("/images/adminback.jpg") no-repeat center center fixed;
+        background-size: cover;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+        padding: 50px;
+    }
+
+    #students, #teachers {
+        width: 320px;
+        background: rgba(0,0,0,0.5);
+        border-radius: 15px;
+        padding: 30px 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #students h1, #teachers h1 {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    #students button, #teachers button, #students a button {
+        width: 100%;
+        height: 45px;
+        font-size: 18px;
+        background: #007bff;
+        border: none;
+        border-radius: 10px;
+        color: white;
+        margin: 8px 0;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    #students button:hover, #teachers button:hover, #students a button:hover {
+        background: #0056b3;
+        transform: scale(1.03);
+    }
+
+    #addStu, #editStu, #deleteStu, #importStu,
+    #addTeacher, #editTeacher, #deleteTeacher {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 90%;
+        max-width: 400px;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,0.85);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        z-index: 9999;
+    }
+
+    label {
+        display: block;
+        margin-top: 12px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    input {
+        width: 100%;
+        height: 40px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        padding: 0 10px;
+        font-size: 16px;
+        margin-top: 6px;
+        outline: none;
+    }
+
+    input:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 8px rgba(0,123,255,0.5);
+    }
+
+    form input[type="submit"] {
+        background: #28a745;
+        color: white;
+        margin-top: 20px;
+        cursor: pointer;
+        transition: background 0.3s, transform 0.2s;
+    }
+
+    form input[type="submit"]:hover {
+        background: #1e7e34;
+        transform: scale(1.03);
+    }
+
+    img[onclick] {
+        float: right;
+        cursor: pointer;
+        margin-bottom: 15px;
+    }
+
+    /* logout button style */
+    .logout-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: #dc3545;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 16px;
+        transition: background 0.3s;
+    }
+
+    .logout-btn:hover {
+        background: #b52a37;
+    }
+
+    @media (max-width: 800px) {
+        .container {
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<a href="/" class="logout-btn">Log Out</a>
+
+<h1>Welcome Shivam</h1>
+
+<div class="container">
+    <div id="students">
+        <h1>Student-Related Operations</h1>
+        <button onclick="addStu()">Add Student</button>
+        <button onclick="editStu()">Edit Student</button>
+        <button onclick="deleteStu()">Delete student</button>
+        <button onclick="importStu()">Import Students by Excel</button>
+        <a href="showStudents"><button>View All Students</button></a>
+    </div>
+
+    <div id="teachers">
+        <h1>Teacher-Related Operations</h1>
+        <button onclick="addTeacher()">Add Teacher</button>
+        <button onclick="editTeacher()">Edit Teacher</button>
+        <button onclick="deleteTeacher()">Delete Teacher</button>
+    </div>
+</div>
+
+<!-- ADD STUDENT -->
+<div id="addStu">
+    <img onclick="addStuRemove()" src="/images/remove.png" width="40"/>
+    <form action="addStu" method="POST">
+        <label>Roll No:</label>
+        <input name="stu_id" type="text"/>
+        <label>Name:</label>
+        <input name="name" type="text"/>
+        <label>Mother's name:</label>
+        <input name="m_name" type="text"/>
+        <label>Father's Name:</label>
+        <input name="f_name" type="text"/>
+        <label>Date of birth:</label>
+        <input name="dob" type="date"/>
+        <input type="submit"/>
+    </form>
+</div>
+
+<!-- EDIT STUDENT -->
+<div id="editStu">
+    <img onclick="editStuRemove()" src="/images/remove.png" width="40"/>
+    <form action="editStu" method="POST">
+        <label>Roll No:</label>
+        <input name="stu_id" type="text"/>
+        <label>Name:</label>
+        <input name="name" type="text"/>
+        <label>Mother's name:</label>
+        <input name="m_name" type="text"/>
+        <label>Father's Name:</label>
+        <input name="f_name" type="text"/>
+        <label>Date of birth:</label>
+        <input name="dob" type="date"/>
+        <input type="submit"/>
+    </form>
+</div>
+
+<!-- DELETE STUDENT -->
+<div id="deleteStu">
+    <img onclick="deleteStuRemove()" src="/images/remove.png" width="40"/>
+    <form action="deleteStu" method="POST">
+        <label>Roll No:</label>
+        <input name="stu_id" type="text"/>
+        <input type="submit"/>
+    </form>
+</div>
+
+<!-- IMPORT STUDENT -->
+<div id="importStu">
+    <img onclick="importStuRemove()" src="/images/remove.png" width="40"/>
+    <form action="importExcel" method="POST" enctype="multipart/form-data">
+        <label>Select Excel File:</label>
+        <input type="file" name="file" accept=".xlsx, .csv" required/>
+        <input type="submit" value="Import"/>
+    </form>
+</div>
+
+<!-- ADD TEACHER -->
+<div id="addTeacher">
+    <img onclick="addTeacherRemove()" src="/images/remove.png" width="40"/>
+    <form action="addTeacher" method="POST">
+        <label>Name:</label>
+        <input name="name" type="text"/>
+        <label>Id:</label>
+        <input name="id" type="text"/>
+        <label>Password:</label>
+        <input name="password" type="text"/>
+        <input type="submit"/>
+    </form>
+</div>
+
+<!-- EDIT TEACHER -->
+<div id="editTeacher">
+    <img onclick="editTeacherRemove()" src="/images/remove.png" width="40"/>
+    <form action="editTeacher" method="POST">
+        <label>Name:</label>
+        <input name="name" type="text"/>
+        <label>Id:</label>
+        <input name="id" type="text"/>
+        <label>Password:</label>
+        <input name="password" type="text"/>
+        <input type="submit"/>
+    </form>
+</div>
+
+<!-- DELETE TEACHER -->
+<div id="deleteTeacher">
+    <img onclick="deleteTeacherRemove()" src="/images/remove.png" width="40"/>
+    <form action="deleteTeacher" method="POST">
+        <label>Id:</label>
+        <input name="id" type="text"/>
+        <input type="submit"/>
+    </form>
+</div>
+
+<script>
+    function addStu(){ document.getElementById("addStu").style.display="block"; }
+    function addStuRemove(){ document.getElementById("addStu").style.display="none"; }
+    function editStu(){ document.getElementById("editStu").style.display="block"; }
+    function editStuRemove(){ document.getElementById("editStu").style.display="none"; }
+    function deleteStu(){ document.getElementById("deleteStu").style.display="block"; }
+    function deleteStuRemove(){ document.getElementById("deleteStu").style.display="none"; }
+    function importStu(){ document.getElementById("importStu").style.display="block"; }
+    function importStuRemove(){ document.getElementById("importStu").style.display="none"; }
+    function addTeacher(){ document.getElementById("addTeacher").style.display="block"; }
+    function addTeacherRemove(){ document.getElementById("addTeacher").style.display="none"; }
+    function editTeacher(){ document.getElementById("editTeacher").style.display="block"; }
+    function editTeacherRemove(){ document.getElementById("editTeacher").style.display="none"; }
+    function deleteTeacher(){ document.getElementById("deleteTeacher").style.display="block"; }
+    function deleteTeacherRemove(){ document.getElementById("deleteTeacher").style.display="none"; }
+</script>
+
+</body>
+</html>

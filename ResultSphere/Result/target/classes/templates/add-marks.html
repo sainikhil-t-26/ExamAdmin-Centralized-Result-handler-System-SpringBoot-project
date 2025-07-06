@@ -1,0 +1,38 @@
+<style>
+	
+	#student-marks{
+		width:100vw;
+		height:100vh;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+	}
+	
+	input{
+		height:40px;
+		width:250px;
+		font-size:20px;
+		outline:none;
+		border-radius:12px;
+		padding-left:10px;
+	}
+	
+</style>
+
+<h1 th:text="${'Welcome ' + teacher_name}"></h1>
+
+<div id="student-marks">
+		
+		<form action="submitStudentMarks" method="POST">
+
+			<input type="hidden" name="teacher_name" th:value="${teacher_name}" readonly/>
+			<input name="rollno" th:value="${student.rollno}" readonly /> <br/><br/>
+			<input name="name" th:value="${student.name}" readonly /> <br/><br/>
+			<input name="java" placeholder ="Add Quant marks" type="text" /> <br/><br/>
+			<input name="react" placeholder ="Add Verbal marks" type="text" /> <br/><br/>
+			<input name="oracle" placeholder ="Add Coding marks" type="text" /> <br/><br/>
+			<button type="submit">Submit Marks</button>
+		</form>
+	
+</div>
+
