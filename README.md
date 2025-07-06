@@ -62,23 +62,35 @@ Results page
 ![Resultspage](https://github.com/user-attachments/assets/facc69f6-40db-4349-9ea9-b05cf387ee12)
 
 ⚙️ Setup
+
 1️⃣ Clone the Repository
+
 git clone https://github.com/yourusername/ResultSphere.git
+
 cd ResultSphere
+
 2️⃣ Configure MySQL
 
 -->Create a database called resultsphere.
+
 CREATE DATABASE resultsphere;
+
 Update src/main/resources/application.properties with your DB credentials:
 
 -->application.properties
+
 spring.datasource.url=jdbc:mysql://localhost:3306/resultsphere
+
 spring.datasource.username=root
+
 spring.datasource.password=yourpassword
+
 spring.jpa.hibernate.ddl-auto=update
 
 3️⃣ Build & Run
+
 mvn clean install
+
 mvn spring-boot:run
 
 Visit: http://localhost:8080
