@@ -1,4 +1,4 @@
-# ResultSphere-Centralized-Results-Exam-System(Spring Boot, Thymeleaf, MySQL)
+# ExamAdmin-Centralized-Result handler-System(Spring Boot, Thymeleaf, MySQL)
 This is a centralized Spring Boot web application developed by Sai Nikhil T of MLRIT as a prototype to efficiently manage and streamline the assessments conducted by the Data Science department for Campus Recruitment Training programs at MLRIT.
 Developed as a prototype by Sai Nikhil T of MLRIT, this system provides distinct functionalities for Admins, Teachers, and Students, ensuring a smooth end-to-end assessment lifecycle.
 
